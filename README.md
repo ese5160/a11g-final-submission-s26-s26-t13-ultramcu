@@ -45,6 +45,7 @@ The smart training glove is built around a SiWx917 / SIWG917Y-based embedded pla
 
 **System-Level Block Diagram**
 
+![system_block](system_block.png)
 
 ### 2.3 Challenges
 
