@@ -84,6 +84,8 @@ The main takeaway is that IoT prototyping requires system-level thinking. A good
 
 ### 2.6 Project Links
 
+[Public_link](https://chenr4.github.io/ESE516_smart_glove/)
+
 ## 3. Hardware & Software Requirements
 
 Each requirement was reviewed based on the final prototype, board bring-up results, firmware tests, Node-RED dashboard behavior, and system integration progress. Some requirements were fully met, while others were partially met due to custom PCBA flashing and final integration limitations.
