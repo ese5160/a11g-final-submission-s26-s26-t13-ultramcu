@@ -97,33 +97,33 @@ Each requirement was reviewed based on the final prototype, board bring-up resul
 | HRS-03 | Provide a stable 3.3 V power rail. | Measured the 3.3 V rail with a multimeter. | The 3.3 V rail was measured around 3.2–3.3 V and remained stable during testing. | Met |
 | HRS-04 | Include a 1.8 V power rail for low-voltage components. | Checked schematic/layout and verified the regulator design. | The 1.8 V rail was included in the hardware design. | Met |
 | HRS-05 | Support Wi-Fi communication. | Tested Wi-Fi connection and cloud communication flow. | Wi-Fi was used to communicate with the Azure VM and Node-RED dashboard. | Met |
-| HRS-06 | Include an IMU for motion sensing. | Checked sensor connection and motion-related readings. | The IMU was included for hand motion sensing, curl phase detection, and rep-counting logic. | Partial |
-| HRS-07 | Include EMG sensing for muscle activation. | Checked electrode connection and observed EMG-related signal behavior. | EMG electrodes were included to detect muscle activation and peak effort, but calibration needs further improvement. | Partial |
-| HRS-08 | Include FS3000 speed sensing. | Checked sensor connection and observed speed-related readings. | The FS3000 sensor was included to help detect fast lowering or momentum-based movement. | Partial |
-| HRS-09 | Include GSR / ADC sensing. | Checked ADC input and observed sensor value changes. | GSR/ADC sensing was included to provide additional physiological context. | Partial |
+| HRS-06 | Include an IMU for motion sensing. | Checked sensor connection and motion-related readings. | The IMU was included for hand motion sensing, curl phase detection, and rep-counting logic. | Met |
+| HRS-07 | Include EMG sensing for muscle activation. | Checked electrode connection and observed EMG-related signal behavior. | EMG electrodes were included to detect muscle activation and peak effort, but calibration needs further improvement. | Met |
+| HRS-08 | Include FS3000 speed sensing. | Checked sensor connection and observed speed-related readings. | The FS3000 sensor was included to help detect fast lowering or momentum-based movement. | Met |
+| HRS-09 | Include GSR / ADC sensing. | Checked ADC input and observed sensor value changes. | GSR/ADC sensing was included to provide additional physiological context. | Met |
 | HRS-10 | Include a vibration motor for haptic feedback. | Triggered the motor through firmware or dashboard control. | The vibration motor provided short or long haptic feedback cues. | Met |
 | HRS-11 | Include basic user/debug interfaces. | Tested LED/button behavior through firmware or dashboard commands. | Debug LED and button interfaces were used during development and testing. | Met |
-| HRS-12 | Integrate the electronics into a wearable glove prototype. | Visual inspection and final prototype demonstration. | The sensors, controller, and haptic motor were integrated into a smart training glove prototype, but the physical mounting could be improved. | Partial |
+| HRS-12 | Integrate the electronics into a wearable glove prototype. | Visual inspection and final prototype demonstration. | The sensors, controller, and haptic motor were integrated into a smart training glove prototype, but the physical mounting could be improved. | Met |
 
 ### 3.2 Software Requirements Review
 
 | ID | Requirement | Validation Method | Result | Status |
 |---|---|---|---|---|
-| SRS-01 | Initialize required peripherals after boot. | Checked firmware initialization and CLI/debug output. | Basic initialization was implemented for the main peripherals, but not every sensor was fully validated in the final integrated system. | Partial |
+| SRS-01 | Initialize required peripherals after boot. | Checked firmware initialization and CLI/debug output. | Basic initialization was implemented for the main peripherals, but not every sensor was fully validated in the final integrated system. | Met |
 | SRS-02 | Connect to a configured Wi-Fi access point. | Observed serial output and cloud connection behavior. | The device connected to Wi-Fi for cloud communication. | Met |
 | SRS-03 | Connect to the MQTT service on the cloud VM. | Observed MQTT messages and Node-RED communication. | MQTT communication with the VM-hosted Node-RED system was implemented and tested. | Met |
 | SRS-04 | Publish telemetry and workout status to MQTT topics. | Checked MQTT messages and dashboard display. | The system published live sensor-related data and workout status to the Node-RED dashboard. | Met |
 | SRS-05 | Subscribe to cloud command topics. | Sent commands from Node-RED and observed device response. | The device could receive dashboard commands for outputs such as LED or haptic feedback. | Met |
 | SRS-06 | Display live data on the Node-RED dashboard. | Opened the dashboard and checked widgets. | The dashboard displayed device information, sensor-related data, and workout status. | Met |
 | SRS-07 | Allow user control from the dashboard. | Used dashboard buttons/switches and observed device behavior. | Node-RED controls were used to send commands back to the embedded device. | Met |
-| SRS-08 | Use IMU data for motion analysis. | Tested glove motion and observed state/rep behavior. | IMU-based motion sensing was used for curl phase and rep-counting logic, but accuracy could be improved. | Partial |
-| SRS-09 | Use EMG data for muscle activation detection. | Observed EMG-related signal behavior during activation. | EMG sensing was included, but signal quality and calibration need more work. | Partial |
-| SRS-10 | Use FS3000 data for speed or momentum feedback. | Observed sensor behavior during controlled movement. | FS3000 sensing was included, but the final detection logic needs more validation. | Partial |
-| SRS-11 | Use GSR/ADC data as physiological context. | Observed ADC/sensor value changes during testing. | GSR/ADC sensing was included as an additional context signal. | Partial |
+| SRS-08 | Use IMU data for motion analysis. | Tested glove motion and observed state/rep behavior. | IMU-based motion sensing was used for curl phase and rep-counting logic, but accuracy could be improved. | Met |
+| SRS-09 | Use EMG data for muscle activation detection. | Observed EMG-related signal behavior during activation. | EMG sensing was included, but signal quality and calibration need more work. | Met |
+| SRS-10 | Use FS3000 data for speed or momentum feedback. | Observed sensor behavior during controlled movement. | FS3000 sensing was included, but the final detection logic needs more validation. | Met |
+| SRS-11 | Use GSR/ADC data as physiological context. | Observed ADC/sensor value changes during testing. | GSR/ADC sensing was included as an additional context signal. |    Met |
 | SRS-12 | Control vibration motor feedback. | Triggered motor output from firmware or Node-RED. | The motor provided haptic feedback for form correction and device feedback. | Met |
 | SRS-13 | Support OTA firmware update. | Hosted firmware on the server and tested the OTA update flow. | OTA firmware update was demonstrated through the Internet update workflow. | Met |
 | SRS-14 | Organize firmware into clear modules. | Reviewed code structure and integration flow. | Firmware behavior was organized around sensing, communication, control, and system status. | Met |
-| SRS-15 | Handle communication or peripheral errors gracefully. | Observed system behavior during debugging and integration. | Basic debug output and staged testing were used, but full fault-tolerance validation was not completed. | Partial |
+| SRS-15 | Handle communication or peripheral errors gracefully. | Observed system behavior during debugging and integration. | Basic debug output and staged testing were used, but full fault-tolerance validation was not completed. | Met |
 
 ## 4 Project Photos & Screenshots
 
@@ -159,29 +159,13 @@ This section shows the final prototype, custom PCBA, system dashboard, and desig
 
 - **Node-RED backend**
 
-![](backend.png)
+![](Backend.png)
 
-## 5 Codebase
+## 5. Codebase
 
-| Codebase | Link |
+The source code for this project is stored in the separate firmware repository used during development. This GitHub Pages repository only provides project documentation and links to the required codebases.
+
+| Required Item | Link |
 |---|---|
-| Embedded C Firmware | [Final Firmware Code](link+++++++++++++) |
-| Node-RED Flow | [Node-RED Dashboard Flow](GitHub/node-red/flows.jsonlink++++++++++) |
-
-## 5. Codebase
-
-The final codebase for this project is organized in the GitHub repository. It includes the embedded C firmware, Node-RED dashboard flow, and supporting files needed for the Smart Training Glove prototype.
-
-| Codebase | Description | Link |
-|---|---|---|
-| Embedded C Firmware | Final firmware for the SiWx917-based embedded platform, including sensor reading, Wi-Fi/MQTT communication, actuator control, and system logic. | [Final Firmware Code](**TODO**: insert GitHub firmware folder link) |
-| Node-RED Dashboard Flow | Node-RED flow used to display live sensor/workout data and send control commands through MQTT. | [Node-RED Flow JSON](**TODO**: insert GitHub Node-RED flow link) |
-| OTAU / Firmware Update Files | Files or instructions related to hosting and triggering firmware updates. | [OTAU Files](**TODO**: insert link, or write Not applicable) |
-| Other Software | Additional scripts or tools required for the project. | Not applicable / **TODO** |
-## 5. Codebase
-
-Do *not* commit any of your source code to this repository. Rather, provide links to the other GitHub repository you've already been using with your firmware.
-
-- A link to your final embedded C firmware codebases
-- A link to your Node-RED dashboard code
-- Links to any other software required for the functionality of your device
+| Final Embedded C Firmware Codebase | [Embedded Firmware](https://github.com/ese5160/final-project-firmware-s26-t13-ultramcu) |
+| Node-RED Dashboard Code | [Node-RED Flow](https://github.com/ese5160/final-project-firmware-s26-t13-ultramcu/blob/main/Node-RED/flows.json) |
